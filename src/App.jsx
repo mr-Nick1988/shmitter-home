@@ -12,8 +12,8 @@ function App() {
     });
 
     const [stats, setStats] = useState({
-        followers: 10,
-        following: 100
+        followers: 0,
+        following: 0
     });
 
     const changeAvatar = url => {
