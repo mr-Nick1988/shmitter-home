@@ -1,9 +1,9 @@
-import './App.css'
+
+import './App.css';
 import Navigation from "./components/Navigation.jsx";
 import Body from "./components/Body.jsx";
-import {useState} from "react";
-import {TwitterContext} from "./utils/context.js";
-
+import { useState } from "react";
+import { TwitterContext } from "./utils/context.js";
 
 function App() {
     const [user, setUser] = useState({
@@ -16,20 +16,43 @@ function App() {
         following: 0
     });
 
-    const changeAvatar = url => {
-        setUser(prevState => ({...prevState, avatar: url || prevState.avatar}));
-    }
+    const changeAvatar = (url) => {
+        setUser(prevState => ({ ...prevState, avatar: url || prevState.avatar }));
+    };
+
+    const changeName = (newName) => {
+        setUser(prevState => ({ ...prevState, name: newName }));
+    };
+
+    const changeFollowers = (newFollowers) => {
+        setStats(prevState => ({ ...prevState, followers: newFollowers }));
+    };
+
+    const changeFollowing = (newFollowing) => {
+        setStats(prevState => ({ ...prevState, following: newFollowing }));
+    };
 
     return (
         <div className={'app'}>
             <TwitterContext.Provider value={{
-                user, stats, changeAvatar
+                user, stats, changeAvatar, changeName, changeFollowers, changeFollowing
             }}>
-                <Navigation/>
-                <Body/>
+                <Navigation />
+                <Body />
             </TwitterContext.Provider>
         </div>
-    )
+    );
 }
 
-export default App
+export default App;
+
+
+
+
+
+
+
+
+
+
+

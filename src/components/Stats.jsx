@@ -1,30 +1,29 @@
-import Avatar from "./Avatar.jsx";
 import {useContext} from "react";
 import {TwitterContext} from "../utils/context.js";
+import Avatar from "./Avatar.jsx";
 
 const Stats = () => {
     const {user, stats, changeFollowers, changeFollowing} = useContext(TwitterContext);
 
     const handleFollowerChange = (plus) => {
         if (plus) {
-            changeFollowers(stats.followers + 1);
+            changeFollowers(stats.followers + 1); // Увеличиваем followers
         } else {
-            if (stats.followers > 0) {
-                changeFollowers(stats.followers - 1);
+            if (stats.followers > 0) { // Предотвращаем отрицательные значения
+                changeFollowers(stats.followers - 1); // Уменьшаем followers
             }
         }
     };
 
     const handleFollowingChange = (plus) => {
         if (plus) {
-            changeFollowing(stats.followers + 1);
+            changeFollowing(stats.following + 1); // Увеличиваем following
         } else {
-            if (stats.followers > 0) {
-                changeFollowing(stats.followers - 1);
+            if (stats.following > 0) { // Предотвращаем отрицательные значения
+                changeFollowing(stats.following - 1); // Уменьшаем following
             }
         }
     };
-
     return (
         <div className={'user-stats'}>
             <div>
@@ -33,12 +32,15 @@ const Stats = () => {
             </div>
             <div className={'stats'}>
                 <div>
-                    <div onClick={() => handleFollowerChange(true)}>Followers: {stats.followers}</div>
+                    <button onClick={() => handleFollowerChange(true)}>
+                        Followers: {stats.followers} +
+                    </button>
                     <button onClick={() => handleFollowerChange(false)}>-</button>
-
                 </div>
                 <div>
-                    <div onClick={() => handleFollowingChange(true)}>Following: {stats.following}</div>
+                    <button onClick={() => handleFollowingChange(true)}>
+                        Following: {stats.following} +
+                    </button>
                     <button onClick={() => handleFollowingChange(false)}>-</button>
                 </div>
             </div>
@@ -47,3 +49,4 @@ const Stats = () => {
 };
 
 export default Stats;
+
