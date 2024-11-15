@@ -7,20 +7,20 @@ const Stats = () => {
 
     const handleFollowerChange = (plus) => {
         if (plus) {
-            changeFollowers(stats.followers + 1); // Увеличиваем followers
+            changeFollowers(stats.followers + 1);
         } else {
-            if (stats.followers > 0) { // Предотвращаем отрицательные значения
-                changeFollowers(stats.followers - 1); // Уменьшаем followers
+            if (stats.followers > 0) {
+                changeFollowers(stats.followers - 1);
             }
         }
     };
 
     const handleFollowingChange = (plus) => {
         if (plus) {
-            changeFollowing(stats.following + 1); // Увеличиваем following
+            changeFollowing(stats.following + 1);
         } else {
-            if (stats.following > 0) { // Предотвращаем отрицательные значения
-                changeFollowing(stats.following - 1); // Уменьшаем following
+            if (stats.following > 0) {
+                changeFollowing(stats.following - 1);
             }
         }
     };
@@ -32,21 +32,63 @@ const Stats = () => {
             </div>
             <div className={'stats'}>
                 <div>
-                    <button onClick={() => handleFollowerChange(true)}>
+                    <button
+                        onClick={() => handleFollowerChange(true)}
+                        className="follower-btn"
+                    >
                         Followers: {stats.followers} +
                     </button>
-                    <button onClick={() => handleFollowerChange(false)}>-</button>
+                    <button
+                        onClick={() => handleFollowerChange(false)}
+                        className="follower-btn-minus"
+                    >
+                        -
+                    </button>
                 </div>
                 <div>
-                    <button onClick={() => handleFollowingChange(true)}>
+                    <button
+                        onClick={() => handleFollowingChange(true)}
+                        className="following-btn"
+                    >
                         Following: {stats.following} +
                     </button>
-                    <button onClick={() => handleFollowingChange(false)}>-</button>
+                    <button
+                        onClick={() => handleFollowingChange(false)}
+                        className="following-btn-minus"
+                    >
+                        -
+                    </button>
                 </div>
             </div>
         </div>
     );
+
 };
+
+
+//     return (
+//         <div className={'user-stats'}>
+//             <div>
+//                 <Avatar/>
+//                 {user.name}
+//             </div>
+//             <div className={'stats'}>
+//                 <div>
+//                     <button onClick={() => handleFollowerChange(true)}>
+//                         Followers: {stats.followers} +
+//                     </button>
+//                     <button onClick={() => handleFollowerChange(false)}>-</button>
+//                 </div>
+//                 <div>
+//                     <button onClick={() => handleFollowingChange(true)}>
+//                         Following: {stats.following} +
+//                     </button>
+//                     <button onClick={() => handleFollowingChange(false)}>-</button>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
 
 export default Stats;
 

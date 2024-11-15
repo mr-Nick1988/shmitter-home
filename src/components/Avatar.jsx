@@ -6,28 +6,25 @@ import { TwitterContext } from "../utils/context.js";
 const Avatar = ({ size }) => {
     const { user, changeAvatar, changeName } = useContext(TwitterContext);
 
-    // Обработчик для кликов
     const handleClick = (e) => {
-        // Предотвращаем стандартное поведение правого клика (появление контекстного меню)
         e.preventDefault();
-
-        if (e.button === 2) { // Правая кнопка мыши
+        if (e.button === 2) {
             const newName = prompt("Enter your name", user.name);
             if (newName) {
-                changeName(newName); // Изменяем имя
+                changeName(newName);
             }
-        } else if (e.button === 0) { // Левая кнопка мыши
+        } else if (e.button === 0) {
             const newAvatarUrl = prompt("Enter new avatar URL", user.avatar);
             if (newAvatarUrl) {
-                changeAvatar(newAvatarUrl); // Изменяем аватар
+                changeAvatar(newAvatarUrl);
             }
         }
   };
 
     return (
         <img
-            onClick={handleClick} // Обработчик для кликов
-            onContextMenu={handleClick} // Добавляем обработчик для правого клика
+            onClick={handleClick}
+            onContextMenu={handleClick}
             className={`user-avatar ${size ?? ''}`}
             src={user.avatar}
             alt={user.name}

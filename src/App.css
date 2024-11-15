@@ -44,8 +44,8 @@
 
 .user-avatar {
   border-radius: 50%;
-  width: 64px;
-  height: 64px;
+  width: 70px;
+  height: 70px;
 }
 
 .user-avatar.small {
@@ -55,6 +55,7 @@
 
 .user-stats {
   width: 100%;
+
 }
 
 .user-stats > div:first-child {
@@ -62,4 +63,35 @@
   align-items: center;
   justify-content: space-around;
   margin-bottom: 10px;
+}
+
+
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  transition: background-color 0.4s, transform 0.2s;
+}
+
+
+.follower-btn, .following-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.follower-btn:hover, .following-btn:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+
+.follower-btn-minus, .following-btn-minus {
+  background-color: #d1d5db;
+  color: #333;
+}
+
+.follower-btn-minus:hover, .following-btn-minus:hover {
+  background-color: #9ca3af;
+  transform: scale(1.05);
 }
